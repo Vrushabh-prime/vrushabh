@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vanshika's Quiz 🤣</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #fff6ff, #ffeaf7);
+        text-align: center;
+        color: #d04c81;
+    }
+
+    h1 {
+        margin-top: 35px;
+        font-size: 40px;
+        animation: fadeIn 1.5s;
+    }
+
+    .quiz-box {
+        width: 80%;
+        max-width: 500px;
+        margin: 25px auto;
+        background: white;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(210, 80, 140, 0.3);
+        animation: fadeIn 1.5s;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 12px;
+        background: #d35283;
+        border: none;
+        padding: 13px;
+        font-size: 18px;
+        border-radius: 12px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        transform: scale(1.05);
+        background: #b83b6d;
+    }
+
+    .result {
+        margin-top: 20px;
+        font-size: 22px;
+        display: none;
+        color: #9c2a5c;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    #nextBTN {
+        display: none;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h1>🤣 Vanshika's Quiz 🤣</h1>
+
+<div class="quiz-box">
+    <h2 id="question">Loading...</h2>
+    <div id="options"></div>
+    <p class="result" id="result"></p>
+    <button id="nextBTN" onclick="nextQuestion()">Next Question ➡️</button>
+</div>
+
+<script>
+let questions = [
+    {
+        q: "Who is the CEO of Cutness Company Ltd? 🤔",
+        opt: ["Virat Kohli", "APJ Abdul Kalam", "Vanshika 😝", "Mukesh Ambani"],
+        ans: 2,
+        msg: "Correct 😂 — you are cuteness ki factory!"
+    },
+    {
+        q: "What happens if Vanshika smiles too much? 😌",
+        opt: ["Earthquake 🌍", "Global warming 🔥", "People faint 😵", "All of the above"],
+        ans: 3,
+        msg: "Exactly 🤣 too much cuteness = world destruction!"
+    },
+    {
+        q: "What is Vanshika’s superpower? 😎",
+        opt: ["Telepathy", "Flying", "Looking cute without trying 😌", "Invisibility"],
+        ans: 2,
+        msg: "Deadly answer 😆 — dangerous but true!"
+    },
+    {
+        q: "Who does vrushabh like to spend the most time with? 👀",
+        opt: ["Neymar", "Cristiano Ronaldo", "Salman Khan", "Vanshika 🔥"],
+        ans: 3,
+        msg: "100% true 😂 Vanshika 'Vanshika hai protector😎'!"
+    }
+];
+
+let index = 0;
+
+function loadQuestion() {
+    document.getElementById("result").style.display = "none";
+    document.getElementById("nextBTN").style.display = "none";
+
+    let q = questions[index];
+    document.getElementById("question").innerText = q.q;
+
+    let optionsHTML = "";
+    q.opt.forEach((option, i) => {
+        optionsHTML += `<button onclick="checkAnswer(${i})">${option}</button>`;
+    });
+    document.getElementById("options").innerHTML = optionsHTML;
+}
+
+function checkAnswer(selected) {
+    let q = questions[index];
+
+    document.getElementById("result").style.display = "block";
+    if (selected === q.ans) {
+        document.getElementById("result").innerText = q.msg;
+    } else {
+        document.getElementById("result").innerText = "Nope 🤣 wrong answer — but nice try!";
+    }
+    document.getElementById("nextBTN").style.display = "inline-block";
+}
+
+function nextQuestion() {
+    index++;
+    if (index < questions.length) {
+        loadQuestion();
+    } else {
+        window.location.href = "winnerpage";  // next page
+    }
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>

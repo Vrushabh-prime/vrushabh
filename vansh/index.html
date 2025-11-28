@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome Vanshika 💕</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #fff2f8, #ffe4ec);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-box {
+        width: 350px;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+        font-size: 32px;
+        color: #c44c84;
+    }
+
+    p {
+        margin-bottom: 25px;
+        font-size: 18px;
+        color: #555;
+    }
+
+    input {
+        width: 90%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 12px;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        background: #ffeef5;
+    }
+
+    button {
+        width: 100%;
+        border: none;
+        padding: 12px;
+        font-size: 18px;
+        color: white;
+        background: #c44c84;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        background: #aa3a6f;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    .error {
+        margin-top: 15px;
+        color: red;
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Hello Vanshika 🌸</h2>
+    <p>Only you can enter this special page 💕</p>
+    
+    <input type="password" id="password" placeholder="Enter Secret Pass">
+    <button onclick="login()">Unlock 💖</button>
+    
+    <div id="error" class="error">Wrong password! Try again ❌</div>
+</div>
+
+<script>
+function login() {
+    let password = document.getElementById("password").value;
+    if (password === "Vanshi") {
+        window.location.href = "surprise.html"; // Next page
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
